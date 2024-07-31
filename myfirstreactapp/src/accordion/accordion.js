@@ -25,25 +25,25 @@ const data = [
 ];
 
 function Accordion() {
-
-    const [seleccted, setSeleccted] = useState(null)
-    const toggle = (i) => {
-        if(seleccted === i) {
-            return setSeleccted(null)
-        }
-        setSeleccted(i)
-    };
+  const [seleccted, setSeleccted] = useState(null);
+  const toggle = (i) => {
+    if (seleccted === i) {
+      return setSeleccted(null);
+    }
+    setSeleccted(i);
+  };
   return (
-    
     <center className="wrapper">
       <div className="accordion">
         {data.map((item, i) => (
           <div className="item">
-            <div className="title" onClick={()=>toggle(i)}>
+            <div className="title" onClick={() => toggle(i)}>
               <h3>{item.question}</h3>
-              <span>{seleccted === i ? '-': '+'}</span>
+              <span>{seleccted === i ? "-" : "+"}</span>
             </div>
-            <div className={seleccted === i ? 'content show': 'content'}>{item.answer} </div>
+            <div className={seleccted === i ? "content show" : "content"}>
+              {item.answer}{" "}
+            </div>
           </div>
         ))}
       </div>

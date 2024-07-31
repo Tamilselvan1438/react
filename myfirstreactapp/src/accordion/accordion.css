@@ -9,14 +9,14 @@
 }
 
 .item{
-    background-color: aqua;
+    background-color: rgb(196, 240, 96);
     margin-bottom: 5px;
     align-content: center;
     padding: 10px 20px;
 }
 
 .title{
-    color: rgb(250, 55, 240);
+    color: rgb(221, 50, 65);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +33,6 @@
 
 .content.show{
     height: auto;
-    max-height: 9999px;
-    transition: all 0.5s cubic-bezier(1,0,1,0);
+    max-height: 99px;
+    /* transition: all 0.5s cubic-bezier(1,0,1,0); */
 }

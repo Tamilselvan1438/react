@@ -1,0 +1,38 @@
+.wrapper{
+    background-color: rgb(253, 245, 245);
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion{
+    width: 500px;
+}
+
+.item{
+    background-color: aqua;
+    margin-bottom: 5px;
+    align-content: center;
+    padding: 10px 20px;
+}
+
+.title{
+    color: rgb(250, 55, 240);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.content{
+    color: blue;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(1,0,1,0);
+}
+
+.content.show{
+    height: auto;
+    max-height: 9999px;
+    transition: all 0.5s cubic-bezier(1,0,1,0);
+}

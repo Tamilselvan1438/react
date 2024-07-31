@@ -23,13 +23,15 @@
   cursor: pointer;
 }
 
-/* .content {
+.content {
   color: blue;
   max-height: 0;
   overflow: hidden;
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
 }
 
 .content.show {
   height: auto;
   max-height: 99px;
-} */
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}

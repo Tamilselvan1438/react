@@ -11,7 +11,7 @@ function App() {
       {/* <Counter /> */}
       {/* <Button type='big' disable={true} /> */}
       {/* <Input/> */}
-      <Accordion/>
+      <Accordion />
     </>
   );
 }

@@ -33,21 +33,21 @@ function Accordion() {
     setSeleccted(i);
   };
   return (
-    <center className="wrapper">
+    <div className="wrapper">
       <div className="accordion">
         {data.map((item, i) => (
-          <div className="item">
+          <div className="item" key={i}>
             <div className="title" onClick={() => toggle(i)}>
               <h3>{item.question}</h3>
               <span>{seleccted === i ? "-" : "+"}</span>
             </div>
-            <div className={seleccted === i ? "content show" : "content"}>
-              {item.answer}{" "}
-            </div>
+            {seleccted === i && <div>
+              {item.answer}
+            </div>}
           </div>
         ))}
       </div>
-    </center>
+    </div>
   );
 }
 

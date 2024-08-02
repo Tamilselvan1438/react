@@ -41,9 +41,9 @@ function Accordion() {
               <h3>{item.question}</h3>
               <span>{seleccted === i ? "-" : "+"}</span>
             </div>
-            {seleccted === i && <div>
+            <div className= {seleccted === i ? "content show ":"content"}>
               {item.answer}
-            </div>}
+            </div>
           </div>
         ))}
       </div>

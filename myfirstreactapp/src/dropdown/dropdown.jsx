@@ -34,7 +34,7 @@ function Dropdown() {
                 key={i}
                 value={deletee}
                 onClick={() => handleRemoveEvent(option)}
->
+              >
                 X
               </button>
             </div>

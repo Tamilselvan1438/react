@@ -14,7 +14,7 @@ function App() {
       {/* <Button type='big' disable={true} /> */}
       {/* <Input/> */}
       {/* <Accordion /> */}
-      <Dropdown/>
+      <Dropdown />
     </>
   );
 }

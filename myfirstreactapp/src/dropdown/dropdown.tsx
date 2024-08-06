@@ -5,7 +5,7 @@ function Dropdown() {
   const data = ["Tamil","Vasanth","Gopi","Ragul","Yuvaraj","Arun","Subha","Fami"];
   const [name, setName] = useState("");
 const abcd =(e)=> {
-setName((prev)=>([...prev, e.target.value]));
+// setName((prev)=>([...prev, e.target.value]));
 };
 const cde =(l)=>{
 setName(l.target.value);

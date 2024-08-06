@@ -5,7 +5,9 @@ import Counter from "./counter/count.jsx";
 import Input from "./input/input.tsx";
 import Accordion from "./accordion/accordion.js";
 // import Dropdown from "./dropdown/dropdown.jsx";
-import Dropdown from "./dropdown/dropdown.js";
+import DropDown from "./dropdown/dropdown.js";
+import DropdownSearch from "./dropdown/dropdownSearch.js"
+import Todolist from "./todolist/todolist.js";
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
       {/* <Button type='big' disable={true} /> */}
       {/* <Input/> */}
       {/* <Accordion /> */}
-      <Dropdown />
+      {/* <DropDown /> */}
+      {/* <DropdownSearch /> */}
+      <Todolist />
     </>
   );
 }

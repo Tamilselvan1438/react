@@ -226,19 +226,26 @@ function Dropdown() {
     },
   ];
 
-  const [name, setName] = useState([]);
-  const [deletee, setDeletee] = useState(data);
-  const [clickDlt, setclickDlt] = useState(data);
+  const [inputValue, setInputValue] = useState([]);
+  const [valueDelete, setValueDelete] = useState(data);
+  const [clickValueDelete, setclickValueDelete] = useState([]);
 
   const handleAddEvent = (event) => {
-    setName((prev) => [...prev, event.target.value]);
+    setInputValue((prev) => [...prev, event.target.value]);
   };
   const handleRemoveEvent = (element) => {
-    setDeletee((prev) => prev.filter((options) => options.id != element.id));
-    setName((prev) =>
-      prev.filter(
-        (options) => options != `${element.first_name}${element.last_name}`
-      )
+    setValueDelete((prev) => prev.filter((options) => options.first_name != element.first_name));
+    setInputValue((prev) => prev.filter((options) => options != element.first_name));
+  };
+  const handleDelete = () => {
+    setValueDelete((arg) => arg.filter((option) => !clickValueDelete.includes(option.first_name)));
+    setInputValue((arg) => arg.filter((option) => !clickValueDelete.includes(option)));
+  };
+  const handleCheckbox = (name) => {
+    setclickValueDelete((prevChecked) =>
+      prevChecked.includes(name)
+        ? prevChecked.filter((itemName) => itemName !== name)
+        : [...prevChecked, name]
     );
   };
 
@@ -246,49 +253,52 @@ function Dropdown() {
     <div>
       <div>
         <table>
-          {deletee.map((option, i) => (
-            <tr>
-              <td>
-                <input value={deletee} type="checkbox" />
-              </td>
-              <td>{option.id}</td>
-              <td>
-                {option.first_name}
-                {option.last_name}
-              </td>
-              <td>{option.email}</td>
-              <td>{option.gender}</td>
-              <td>{option.country}</td>
-              <button
-                key={i}
-                value={deletee}
-                onClick={() => handleRemoveEvent(option)}
-              >
-                X
-              </button>
-            </tr>
-          ))}
+          <tbody>
+            {valueDelete.map((option, i) => (
+              <tr key={i}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={clickValueDelete.includes(option.first_name)}
+                    onChange={() => handleCheckbox(option.first_name)}
+                    readOnly
+                  />
+                </td>
+                <td>{option.id}</td>
+                <td>{option.first_name}</td>
+                <td>{option.last_name}</td>
+                <td>{option.email}</td>
+                <td>{option.gender}</td>
+                <td>{option.country}</td>
+                <td>
+                  <button
+                    key={i}
+                    value={valueDelete}
+                    onClick={() => handleRemoveEvent(option)}
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-        <button
-          value="clickDlt"
-          onClick={() => handleRemoveEvent}
-          className="search"
-        >
+        <button onClick={handleDelete} className="search">
           delete
         </button>
         <hr color="red" />
       </div>
       <div>
-        <input type="text" value={name} placeholder="searchBar" />
+        <input
+          type="text"
+          value={inputValue}
+          placeholder="searchBar"
+          readOnly
+        />
         <div>
           <select onClick={handleAddEvent} className="search">
-            {deletee.map((item, i) => (
-              <option key={i} value={`${item.first_name}${item.last_name}`}>
-                <option>
-                  {item.first_name}
-                  {item.last_name}
-                </option>
-              </option>
+            {valueDelete.map((item, i) => (
+              <option key={i}>{item.first_name}</option>
             ))}
           </select>
           <div></div>

@@ -6,19 +6,19 @@ function TicTacToe() {
         <div>
             <table>
                 <tr>
-                    <td><button>x</button></td>
-                    <td><button>o</button></td>
-                    <td><button>x</button></td>
+                    <td><button></button></td>
+                    <td><button></button></td>
+                    <td><button></button></td>
                 </tr>
                 <tr>
-                    <td><button>x</button></td>
-                    <td><button>o</button></td>
-                    <td><button>x</button></td>
+                    <td><button></button></td>
+                    <td><button></button></td>
+                    <td><button></button></td>
                 </tr>
                 <tr>
-                    <td><button>o</button></td>
-                    <td><button>x</button></td>
-                    <td><button>o</button></td>
+                    <td><button></button></td>
+                    <td><button></button></td>
+                    <td><button></button></td>
                 </tr>
             </table>
         </div>

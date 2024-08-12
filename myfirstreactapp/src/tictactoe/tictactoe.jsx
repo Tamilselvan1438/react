@@ -39,7 +39,7 @@ function TicTacToe() {
 
   const restartGame = () => {
     setBoard(Array(9).fill(null));
-    setIsXNext(true);
+    setIsXNext(false);
   };
 
   const status = calculateWinner(board)

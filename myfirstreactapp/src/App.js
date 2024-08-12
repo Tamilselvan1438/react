@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from "./logo.svg";
 import React from "react";
 import Button from "./button/button.tsx";
 import Counter from "./counter/count.jsx";
@@ -8,7 +8,8 @@ import Accordion from "./accordion/accordion.js";
 import DropDown from "./dropdown/dropdown.js";
 import DropdownSearch from "./dropdown/dropdownSearch.js";
 import Todolist from "./todolist/todolist.js";
-import TicTacToe from "./tictactoe/tictactoe.jsx"
+import TicTacToe from "./tictactoe/tictactoe.jsx";
+import FormAndTable from "./formandtable/formandtable.jsx";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* <DropDown /> */}
       {/* <DropdownSearch /> */}
       {/* <Todolist /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <FormAndTable />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./formandtable.css";
+import _ from 'lodash';
 
 const data = {
   Name: "",
@@ -105,36 +106,63 @@ function FormAndTable() {
                 <button onClick={() => handleView(item)}>View</button>
               </td> */}
               <td className="table-border">
-                <button onClick={() => handleDelete(item.Email)} className="delete">Delete</button>
+                <button
+                  onClick={() => handleDelete(item.Email)}
+                  className="delete"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
       <div>
-        <button className="delete" onClick={handleView}>View All Details</button>
+        <button className="delete" onClick={handleView}>
+          View All Details
+        </button>
       </div>
       {viewItem &&
         viewItem.map((item, i) => (
           <table key={i} className="table-border">
-            <h3><tr className="table-border">Details for {item.Name}</tr></h3>
+            <h3>
+              <tr className="table-border">Details for {item.Name}</tr>
+            </h3>
             <tr>
-              <td><strong>Gender:</strong></td> <td className="text">{item.Gender}</td>
+              <td>
+                <strong>Gender:</strong>
+              </td>
+              <td className="text">{item.Gender}</td>
             </tr>
             <tr>
-              <td><strong>Phone Number:</strong> </td><td className="text">{item["Phone Number"]}</td>
+              <td>
+                <strong>Phone Number:</strong>
+              </td>
+              <td className="text">{item["Phone Number"]}</td>
             </tr>
             <tr>
-              <td><strong>Email:</strong></td> <td className="text">{item.Email}</td>
+              <td>
+                <strong>Email:</strong>
+              </td>
+              <td className="text">{item.Email}</td>
             </tr>
             <tr>
-              <td><strong>Active:</strong></td> <td className="text">{item.Active}</td>
+              <td>
+                <strong>Active:</strong>
+              </td>
+              <td className="text">{item.Active}</td>
             </tr>
             <tr>
-              <td><strong>Review:</strong></td> <td className="text">{item.Review}</td>
+              <td>
+                <strong>Review:</strong>
+              </td>
+              <td className="text">{item.Review}</td>
             </tr>
             <tr>
-             <td> <strong>Sports:</strong></td> <td className="text">{item.Sports.join(", ")}</td>
+              <td>
+                <strong>Sports:</strong>
+              </td>
+              <td className="text">{item.Sports.join(", ")}</td>
             </tr>
             {/* <tr>
             <button onClick={handleViewDelete}>Remove</button>
@@ -298,7 +326,9 @@ function FormAndTable() {
             <tr>
               <td></td>
               <td>
-                <button className="delete" onClick={handleSubmit}>Submit</button>
+                <button className="delete" onClick={handleSubmit}>
+                  Submit
+                </button>
               </td>
             </tr>
           </tbody>

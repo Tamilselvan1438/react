@@ -9,7 +9,7 @@ import DropDown from "./dropdown/dropdown.js";
 import DropdownSearch from "./dropdown/dropdownSearch.js";
 import Todolist from "./todolist/todolist.js";
 import TicTacToe from "./tictactoe/tictactoe.jsx";
-import FormAndTable from "./formandtable/formandtable.jsx";
+import FormAndTable from "./formandtable/refacter/formandtable.jsx";
 
 function App() {
   return (

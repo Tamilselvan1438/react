@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { FormDataContext } from "./provider.jsx";
 
 const sportsData = [
   "Boxing",
@@ -10,14 +11,8 @@ const sportsData = [
   "Basketball",
 ];
 
-const Sports = ({ clickValue, setClickValue }) => {
-  const handleCheckbox = (name) => {
-    setClickValue((prevChecked) =>
-      prevChecked.includes(name)
-        ? prevChecked.filter((itemName) => itemName !== name)
-        : [...prevChecked, name]
-    );
-  };
+const Sports = () => {
+  const { clickValue, handleCheckbox } = useContext(FormDataContext);
 
   return (
     <div>

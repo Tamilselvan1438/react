@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import { useContext } from "react";
+import { FormDataContext } from "./provider.jsx";
 
-const ViewDetails = ({ inputValue }) => {
-  const [open, setOpen] = useState(false);
-
-  const handelView = () => {
-    setOpen(!open);
-  };
+const ViewDetails = () => {
+  const { inputValue, selected, handleShowSportsName } = useContext(FormDataContext);
 
   return (
     <div>
-      {open &&
+      {selected &&
         inputValue.map((item, i) => (
           <table key={i} className="table-border">
             <h3>
@@ -54,7 +51,7 @@ const ViewDetails = ({ inputValue }) => {
           </table>
         ))}
       <div>
-        <button className="delete" onClick={handelView}>
+        <button className="delete" onClick={handleShowSportsName}>
           View All Details
         </button>
       </div>

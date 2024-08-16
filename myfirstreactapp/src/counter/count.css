@@ -1,0 +1,8 @@
+.counter{
+    width: 200px;
+    height: 6%;
+    font-size: 30px;
+    border-color: red;
+    border-width: 20px;
+    border-radius: 30px;
+}

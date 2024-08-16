@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { createContext, useReducer } from "react";
 
 const data = {
   Name: "",
@@ -10,57 +10,94 @@ const data = {
   Sports: [],
 };
 
+const initialState = {
+  inputValue: [],
+  formData: data,
+  clickValue: [],
+  selected: false,
+  isOpen: false,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SUBMIT":
+      return {
+        ...state,
+        inputValue: [
+          ...state.inputValue,
+          { ...state.formData, Sports: state.clickValue },
+        ],
+        formData: initialState.formData,
+        clickValue: [],
+        isOpen: false,
+        selected: false,
+      };
+    case "DELETE":
+      return {
+        ...state,
+        inputValue: state.inputValue.filter(
+          (item) => item.Email !== action.payload
+        ),
+      };
+    case "INPUT_CHANGE":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          [action.payload.name]: action.payload.value,
+        },
+      };
+    case "SPORTS":
+      return {
+        ...state,
+        selected: !state.selected,
+      };
+    case "VIEW":
+      return {
+        ...state,
+        isOpen: !state.isOpen,
+      };
+    case "CHECKBOX":
+      return {
+        ...state,
+        clickValue: state.clickValue.includes(action.payload)
+          ? state.clickValue.filter((item) => item !== action.payload)
+          : [...state.clickValue, action.payload],
+      };
+    default:
+      return state;
+  }
+};
+
 const FormDataContext = createContext();
 
 const FromProvider = ({ children }) => {
-  const [inputValue, setInputValue] = useState([]);
-  const [formData, setFormData] = useState(data);
-  const [clickValue, setClickValue] = useState([]);
-  const [selected, setSelected] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleSubmit = () => {
-    setInputValue([...inputValue, { ...formData, Sports: clickValue }]);
-    setFormData(data);
-    setClickValue([]);
-  };
-
-  const handleDelete = (id) => {
-    setInputValue(inputValue.filter((item) => item.Email !== id));
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+  const handleSubmit = () => dispatch({ type: "SUBMIT" });
+  const handleDelete = (id) =>
+    dispatch({ type: "DELETE", payload: id });
+  const handleInputChange = (e) =>
+    dispatch({
+      type: "INPUT_CHANGE",
+      payload: { name: e.target.name, value: e.target.value },
     });
-  };
-
-  const handleShowSportsName = () => {
-    setSelected(!selected);
-  };
-
-  const handleCheckbox = (name) => {
-    setClickValue((prevChecked) =>
-      prevChecked.includes(name)
-        ? prevChecked.filter((itemName) => itemName !== name)
-        : [...prevChecked, name]
-    );
-  };
-
+  const handleShowSportsName = () =>
+    dispatch({ type: "SPORTS" });
+  const handleViewDetails = () => dispatch({ type: "VIEW" });
+  const handleCheckbox = (name) =>
+    dispatch({ type: "CHECKBOX", payload: name });
 
   return (
     <FormDataContext.Provider
       value={{
-        inputValue,
-        formData,
-        clickValue,
-        selected,
+        ...state,
         handleSubmit,
         handleDelete,
         handleInputChange,
         handleShowSportsName,
         handleCheckbox,
+        handleViewDetails,
       }}
     >
       {children}

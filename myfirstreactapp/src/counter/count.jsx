@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./count.css"
 
 function Counter() {
   const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    alert(`count  ${count}`)
+  },[count]);
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -12,10 +17,10 @@ function Counter() {
 
   return (
     <center>
-      <div className="Counter">
-        <button onClick={handleIncrement}>Increment</button>
-        <span>count: {count}</span>
-        <button onClick={handleDecrement}>Decrement</button>
+      <div >
+        <button onClick={handleDecrement} className="counter">Decrement</button>
+        <span className="big">count: {count}</span>
+        <button onClick={handleIncrement} className="counter">Increment</button>
       </div>
     </center>
   );

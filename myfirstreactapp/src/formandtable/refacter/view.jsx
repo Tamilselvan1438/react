@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { FormDataContext } from "./provider.jsx";
 
 const ViewDetails = () => {
-  const { inputValue, selected, handleShowSportsName } = useContext(FormDataContext);
+  const { inputValue, isOpen, handleViewDetails } = useContext(FormDataContext);
 
   return (
     <div>
-      {selected &&
+      {isOpen &&
         inputValue.map((item, i) => (
           <table key={i} className="table-border">
             <h3>
@@ -51,7 +51,7 @@ const ViewDetails = () => {
           </table>
         ))}
       <div>
-        <button className="delete" onClick={handleShowSportsName}>
+        <button className="delete" onClick={handleViewDetails}>
           View All Details
         </button>
       </div>

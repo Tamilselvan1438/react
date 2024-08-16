@@ -8,13 +8,19 @@ function Input() {
   const [email, setEmail] = useState("");
 
   const handleChangeName = ({ target }) => {
-    setName(target.value);
+    if (/^[A-Za-z .]*$/.test( target.value )) {
+      setName(target.value);
+    }
   };
   const handleChangeNumber = ({ target }) => {
-    setNumber(target.value);
+    if (/^[0-9]*$/.test( target.value )) {
+      setNumber(target.value);
+    }
   };
   const handleChangeEmail = ({ target }) => {
-    setEmail(target.value);
+    if (/^[A-Za-z0-9@.]*$/.test( target.value )) {
+      setEmail(target.value);
+    }
   };
 
   const saveData = () => {
@@ -48,9 +54,10 @@ function Input() {
           <td>Phone Number: </td>
           <td>
             <input
-              type="number"
+              type="text"
               className="number"
               value={number}
+              maxLength={10}
               onChange={handleChangeNumber}
             />
           </td>

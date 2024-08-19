@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useRef } from "react";
 
 const data = {
   Name: "",
@@ -72,18 +72,20 @@ const reducer = (state, action) => {
 const FormDataContext = createContext();
 
 const FromProvider = ({ children }) => {
+  const inputRef = useRef(null);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleSubmit = () => dispatch({ type: "SUBMIT" });
-  const handleDelete = (id) =>
-    dispatch({ type: "DELETE", payload: id });
+  const handleSubmit = () => {
+    dispatch({ type: "SUBMIT" });
+    inputRef.current.focus();
+  };
+  const handleDelete = (id) => dispatch({ type: "DELETE", payload: id });
   const handleInputChange = (e) =>
     dispatch({
       type: "INPUT_CHANGE",
       payload: { name: e.target.name, value: e.target.value },
     });
-  const handleShowSportsName = () =>
-    dispatch({ type: "SPORTS" });
+  const handleShowSportsName = () => dispatch({ type: "SPORTS" });
   const handleViewDetails = () => dispatch({ type: "VIEW" });
   const handleCheckbox = (name) =>
     dispatch({ type: "CHECKBOX", payload: name });
@@ -98,6 +100,7 @@ const FromProvider = ({ children }) => {
         handleShowSportsName,
         handleCheckbox,
         handleViewDetails,
+        inputRef,
       }}
     >
       {children}

@@ -6,10 +6,10 @@ import React from "react";
 // import Accordion from "./accordion/accordion.js";
 // import Dropdown from "./dropdown/dropdown.jsx";
 // import DropDown from "./dropdown/dropdown.js";
-// import DropdownSearch from "./dropdown/dropdownSearch.js";
+import DropdownSearch from "./dropdown/dropdownSearch.js";
 // import Todolist from "./todolist/todolist.js";
 // import TicTacToe from "./tictactoe/tictactoe.jsx";
-import FormAndTable from "./formandtable/refacter/formandtable.jsx";
+// import FormAndTable from "./formandtable/refacter/formandtable.jsx";
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
       {/* <Input/> */}
       {/* <Accordion /> */}
       {/* <DropDown /> */}
-      {/* <DropdownSearch /> */}
+      <DropdownSearch />
       {/* <Todolist /> */}
       {/* <TicTacToe /> */}
-      <FormAndTable />
+      {/* <FormAndTable /> */}
     </>
   );
 }

@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./dropdown.css";
 
-function DropdownSearch() {
-  const animals = ["dog", "cat", "donkey", "monkey"];
-  const [search, setSearch] = useState("");
-  const [filterSearch, setFilterSearch] = useState(animals);
-  
+const animals = ["dog", "cat", "donkey", "monkey"];
 
-  useEffect(() => {
-    setFilterSearch(
-      animals.filter((item) => item.includes(search))
-    );
-  }, [search, filterSearch]);
+function DropdownSearch() {
+  const [search, setSearch] = useState("");
+  // const [filterSearch, setFilterSearch] = useState(animals);
+
+  // useEffect(() => {
+  //   setFilterSearch(animals.filter((item) => item.includes(search)));
+  // }, [search, filterSearch]);
+      
+const filterSearch = useMemo(() => {
+  return animals.filter((item) => item.includes(search));
+}, [search]);
 
   const changeEvent = (element) => {
     setSearch(element.target.value);
@@ -19,15 +21,11 @@ function DropdownSearch() {
 
   return (
     <div>
-      <input
-        onChange={changeEvent}
-        value={search}
-        placeholder="Search-Bar"
-      />
+      <input onChange={changeEvent} value={search} placeholder="Search-Bar" />
       {
         <ul>
           {filterSearch.map((item, i) => (
-            <div key={i}>{item}</div>
+            <li key={i}>{item}</li>
           ))}
         </ul>
       }

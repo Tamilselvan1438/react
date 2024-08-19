@@ -11,6 +11,7 @@ const Form = () => {
     handleInputChange,
     clickValue,
     setClickValue,
+    inputRef
   } = useContext(FormDataContext);
 
   return (
@@ -21,6 +22,7 @@ const Form = () => {
             <td>Name:</td>
             <td>
               <input
+                ref={inputRef}
                 type="text"
                 name="Name"
                 value={formData.Name}

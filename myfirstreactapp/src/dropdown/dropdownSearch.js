@@ -21,11 +21,11 @@ const filterSearch = useMemo(() => {
 
   return (
     <div>
-      <input onChange={changeEvent} value={search} placeholder="Search-Bar" />
+      <input className="view" onChange={changeEvent} value={search} placeholder="Search-Bar" />
       {
-        <ul>
+        <ul className="border">
           {filterSearch.map((item, i) => (
-            <li key={i}>{item}</li>
+            <button className="view" key={i}>{item}</button>
           ))}
         </ul>
       }

@@ -1,0 +1,72 @@
+/* // import React, { useState } from "react";
+
+// const data = {
+//   Animals: [
+//     { "Wild Animals": ["Panther", "Tiger", "Lion", "Elephant"] },
+//     { "Domestic Animals": ["Cow", "Dog", "Cat", "Horse"] },
+//   ],
+//   Birds: [
+//     { "Birds of Prey": ["Eagle", "Hawk", "Falcon", "Osprey"] },
+//     { Songbirds: ["Sparrow", "Robin", "Canary", "Finch"] },
+//   ],
+// };
+
+// function MultiDropDown() {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [isOpe, setIsOpe] = useState(false);
+
+//   const handalOpen = () => {
+//     setIsOpen(!isOpen);
+//   };
+
+//   const handalOpe = () => {
+//     setIsOpe(!isOpe);
+//   };
+
+//   return (
+//     <div>
+//       <select onClick={handalOpen}>
+//         {Object.keys(data).map((item) => (
+//           <option>{item}</option>
+//         ))}
+//       </select>
+//       {isOpen && (
+//         <div onClick={handalOpe}>
+//           <select >
+//             {data.Animals.map((item) => (
+//               <option>{Object.keys(item)}</option>
+//             ))}
+//           </select>
+//         </div>
+//       )}
+//      {isOpe && <div>
+//         {data.Animals.map((item) => (
+//           <select>
+//             {Object.values(item).map((ite) =>
+//               ite.map((tam) => <option>{tam}</option>)
+//             )}
+//           </select>
+//         ))}
+//       </div>}
+
+//      {isOpen && <div>
+//         <select>
+//           {data.Birds.map((item) => (
+//             <option>{Object.keys(item)}</option>
+//           ))}
+//         </select>
+//       </div>}
+//      {isOpe && <div>
+//         {data.Birds.map((item) => (
+//           <select>
+//             {Object.values(item).map((ite) =>
+//               ite.map((tam) => <option>{tam}</option>)
+//             )}
+//           </select>
+//         ))}
+//       </div>}
+//     </div>
+//   );
+// }
+
+// export default MultiDropDown */

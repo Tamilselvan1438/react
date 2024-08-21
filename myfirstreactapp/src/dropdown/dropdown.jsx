@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./dropdown.css";
 
+const data = [
+  "Tamil",
+  "Vasanth",
+  "Gopi",
+  "Ragul",
+  "Yuvaraj",
+  "Arun",
+  "Subha",
+];
+
 function Dropdown() {
-  const data = [
-    "Tamil",
-    "Vasanth",
-    "Gopi",
-    "Ragul",
-    "Yuvaraj",
-    "Arun",
-    "Subha",
-    "Fami",
-  ];
   const [name, setName] = useState("");
   const [deletee, setDeletee] = useState(data);
 

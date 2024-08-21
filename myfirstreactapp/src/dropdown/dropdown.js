@@ -92,8 +92,8 @@
 //     setName((prev) => [...prev, event.target.value]);
 //   };
 //   const handleRemoveEvent = (element) => {
-//     setDeletee((prev) => prev.filter((options) => options.id != element.id));
-//     setName((prev) => prev.filter((options) => options != `${element.first_name}${element.last_name}`));
+//     setDeletee((prev) => prev.filter((options) => options.id !== element.id));
+//     setName((prev) => prev.filter((options) => options !== `${element.first_name}${element.last_name}`));
 //   };
 
 //   return (
@@ -234,8 +234,8 @@ function Dropdown() {
     setInputValue((prev) => [...prev, event.target.value]);
   };
   const handleRemoveEvent = (element) => {
-    setValueDelete((prev) => prev.filter((options) => options.first_name != element.first_name));
-    setInputValue((prev) => prev.filter((options) => options != element.first_name));
+    setValueDelete((prev) => prev.filter((options) => options.first_name !== element.first_name));
+    setInputValue((prev) => prev.filter((options) => options !== element.first_name));
   };
   const handleDelete = () => {
     setValueDelete((arg) => arg.filter((option) => !clickValueDelete.includes(option.first_name)));

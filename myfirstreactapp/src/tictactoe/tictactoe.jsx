@@ -8,8 +8,9 @@ function TicTacToe() {
   const handleClick = (i) => {
     if (board[i] || calculateWinner(board)) return;
 
-    board[i] = isXNext ? "X" : "O";
-    setBoard(board);
+    const newBoard = board.slice(); 
+    newBoard[i] = isXNext ? "X" : "O";
+    setBoard(newBoard);
     setIsXNext(!isXNext);
   };
 
@@ -26,24 +27,26 @@ function TicTacToe() {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
     }
     return null;
   };
 
+  const checkDraw = (squares) => {
+    return squares.every(square => square !== null) && !calculateWinner(squares);
+  };
+
   const restartGame = () => {
     setBoard(Array(9).fill(null));
-    setIsXNext(false);
+    setIsXNext(!isXNext);
   };
 
   const status = calculateWinner(board)
     ? `Winner: ${calculateWinner(board)}`
+    : checkDraw(board)
+    ? "It's a draw!"
     : `Next player: ${isXNext ? "X" : "O"}`;
 
   return (

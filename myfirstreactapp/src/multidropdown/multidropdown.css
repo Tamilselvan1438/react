@@ -1,72 +1,51 @@
-/* // import React, { useState } from "react";
+/* .alingment{
+    margin-left: 155px;
+    margin-right: 80px;
+    cursor: pointer;
+    background-color: rgb(47, 232, 245);
+} */
 
-// const data = {
-//   Animals: [
-//     { "Wild Animals": ["Panther", "Tiger", "Lion", "Elephant"] },
-//     { "Domestic Animals": ["Cow", "Dog", "Cat", "Horse"] },
-//   ],
-//   Birds: [
-//     { "Birds of Prey": ["Eagle", "Hawk", "Falcon", "Osprey"] },
-//     { Songbirds: ["Sparrow", "Robin", "Canary", "Finch"] },
-//   ],
-// };
 
-// function MultiDropDown() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [isOpe, setIsOpe] = useState(false);
+.alingment {
+  margin: 10px 0;
+  position: relative;
+}
 
-//   const handalOpen = () => {
-//     setIsOpen(!isOpen);
-//   };
 
-//   const handalOpe = () => {
-//     setIsOpe(!isOpe);
-//   };
+.alingment > span {
+  cursor: pointer;
+  padding: 8px 16px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
 
-//   return (
-//     <div>
-//       <select onClick={handalOpen}>
-//         {Object.keys(data).map((item) => (
-//           <option>{item}</option>
-//         ))}
-//       </select>
-//       {isOpen && (
-//         <div onClick={handalOpe}>
-//           <select >
-//             {data.Animals.map((item) => (
-//               <option>{Object.keys(item)}</option>
-//             ))}
-//           </select>
-//         </div>
-//       )}
-//      {isOpe && <div>
-//         {data.Animals.map((item) => (
-//           <select>
-//             {Object.values(item).map((ite) =>
-//               ite.map((tam) => <option>{tam}</option>)
-//             )}
-//           </select>
-//         ))}
-//       </div>}
+.alingment > span:hover {
+  background-color: #e0e0e0;
+}
 
-//      {isOpen && <div>
-//         <select>
-//           {data.Birds.map((item) => (
-//             <option>{Object.keys(item)}</option>
-//           ))}
-//         </select>
-//       </div>}
-//      {isOpe && <div>
-//         {data.Birds.map((item) => (
-//           <select>
-//             {Object.values(item).map((ite) =>
-//               ite.map((tam) => <option>{tam}</option>)
-//             )}
-//           </select>
-//         ))}
-//       </div>}
-//     </div>
-//   );
-// }
+.alingment > div {
+  margin-left: 20px; 
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+  position: relative;
+}
 
-// export default MultiDropDown */
+.alingment > span.active + div {
+  display: block; 
+}
+
+
+.alingment > div > span {
+  margin-bottom: 5px;
+}
+
+.alingment > div > div > span {
+  background-color: #fff;
+  border: 1px solid #0a0a0a;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
